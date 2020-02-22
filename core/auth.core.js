@@ -1,9 +1,9 @@
 /* eslint-disable object-shorthand */
-import configs from 'configs/index';
-import jwt from 'jsonwebtoken';
-import encryption from 'utils/encryption';
-import { InvalidPasswordError, InvalidUsernameOrEmailError } from 'common/error';
-import userODM from 'db/odm/user.odm';
+const configs = require('configs/index');
+const jwt = require('jsonwebtoken');
+const encryption = require('utils/encryption');
+const { InvalidPasswordError, InvalidUsernameOrEmailError } = require('common/error');
+const userODM = require('db/odm/user.odm');
 
 /**
  * Check if given information is correct for login
@@ -30,6 +30,6 @@ async function checkLogin(usr, pwd) {
   return data;
 }
 
-export default {
+module.exports = {
   checkLogin,
 };

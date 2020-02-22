@@ -1,9 +1,9 @@
-import staffODM from 'db/odm/staff.odm';
-import eventODM from 'db/odm/event.odm';
-import {
+const staffODM = require('db/odm/staff.odm');
+const eventODM = require('db/odm/event.odm');
+const {
   EventNotFoundError, UserNotFoundError, StaffExistedError, StaffNotFoundError,
-} from 'common/error';
-import userODM from 'db/odm/user.odm';
+} = require('common/error');
+const userODM = require('db/odm/user.odm');
 
 async function findStaffsByEventId(eventId) {
   const event = await eventODM.findById(eventId);
@@ -40,7 +40,7 @@ async function removeStaffFromEvent(eventId, staffId) {
   };
 }
 
-export default {
+module.exports = {
   findStaffsByEventId,
   addStaffToEvent,
   removeStaffFromEvent,

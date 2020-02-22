@@ -14,4 +14,4 @@ class _MailgunService {
 
 const MailgunService = new _MailgunService();
 
-export default MailgunService;
+module.exports = MailgunService;

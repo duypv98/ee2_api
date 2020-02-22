@@ -1,7 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable max-classes-per-file */
-import constant from 'common/constant';
-import MailgunService from 'services/mailgun';
+const constant = require('common/constant');
+const MailgunService = require('services/mailgun');
 
 const { Email, EmailSubject } = constant;
 
@@ -28,7 +26,7 @@ class Mail {
   }
 }
 
-export class VerifyUserEmail extends Mail {
+class VerifyUserEmail extends Mail {
   constructor({ ...info }) {
     super({
       subject: `${EmailSubject.VERIFY_USER}`,
@@ -37,7 +35,7 @@ export class VerifyUserEmail extends Mail {
   }
 }
 
-export class VerifyGuestEmail extends Mail {
+class VerifyGuestEmail extends Mail {
   constructor({ ...info }) {
     super({
       subject: `${EmailSubject.VERIFY_GUEST}`,
@@ -46,11 +44,17 @@ export class VerifyGuestEmail extends Mail {
   }
 }
 
-export class TicketEmail extends Mail {
+class TicketEmail extends Mail {
   constructor({ ...info }) {
     super({
       subject: `${EmailSubject.TICKET_INFO}`,
       ...info,
     });
   }
+}
+
+module.exports = {
+  VerifyUserEmail,
+  VerifyGuestEmail,
+  TicketEmail,
 }

@@ -1,20 +1,20 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
-import configs from 'configs/index';
-import constant from 'common/constant';
-import guestODM from 'db/odm/guest.odm';
-import userODM from 'db/odm/user.odm';
-import eventODM from 'db/odm/event.odm';
-import { Types } from 'mongoose';
-import pagination from 'utils/pagination';
-import {
+const configs = require('configs/index');
+const constant = require('common/constant');
+const guestODM = require('db/odm/guest.odm');
+const userODM = require('db/odm/user.odm');
+const eventODM = require('db/odm/event.odm');
+const { Types } = require('mongoose');
+const pagination = require('utils/pagination');
+const {
   EventNotFoundError, GuestExistedError, GuestNotFoundError,
   EmailVerifiedError, TicketApprovedError, TicketCheckedInError,
-} from 'common/error';
-import { VerifyGuestEmail, TicketEmail } from 'common/mail';
-import QRCode from 'utils/QRCode';
-import MailgunService from 'services/mailgun';
-import { fromString } from 'uuidv4';
+} = require('common/error');
+const { VerifyGuestEmail, TicketEmail } = require('common/mail');
+const QRCode = require('utils/QRCode');
+const MailgunService = require('services/mailgun');
+const { fromString } = require('uuidv4');
 
 const { ItemsPerPage } = constant;
 
@@ -254,7 +254,7 @@ async function findGuestByCode(code) {
   return guest;
 }
 
-export default {
+module.exports = {
   findGuestsByEventId,
   findGuestById,
   findPendingGuestsByEventId,

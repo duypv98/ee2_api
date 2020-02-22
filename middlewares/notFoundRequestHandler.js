@@ -9,4 +9,4 @@ function notFoundRequestHandler(req, res, next) {
   next();
 }
 
-export default notFoundRequestHandler;
+module.exports = notFoundRequestHandler;

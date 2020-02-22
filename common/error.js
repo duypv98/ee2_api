@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-export class ServerAPIError extends Error {
+class ServerAPIError extends Error {
   /**
    *
    * @param {Number} code
@@ -15,7 +15,7 @@ export class ServerAPIError extends Error {
   }
 }
 
-export class InvalidUsernameOrEmailError extends ServerAPIError {
+class InvalidUsernameOrEmailError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40001,
@@ -25,7 +25,7 @@ export class InvalidUsernameOrEmailError extends ServerAPIError {
   }
 }
 
-export class InvalidPasswordError extends ServerAPIError {
+class InvalidPasswordError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40002,
@@ -34,8 +34,7 @@ export class InvalidPasswordError extends ServerAPIError {
     });
   }
 }
-
-export class InvalidEmailFormatError extends ServerAPIError {
+class InvalidEmailFormatError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40003,
@@ -45,7 +44,7 @@ export class InvalidEmailFormatError extends ServerAPIError {
   }
 }
 
-export class UnknownActionError extends ServerAPIError {
+class UnknownActionError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40004,
@@ -55,7 +54,7 @@ export class UnknownActionError extends ServerAPIError {
   }
 }
 
-export class InvalidBase64InputError extends ServerAPIError {
+class InvalidBase64InputError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40005,
@@ -65,7 +64,7 @@ export class InvalidBase64InputError extends ServerAPIError {
   }
 }
 
-export class UnauthorizedError extends ServerAPIError {
+class UnauthorizedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40101,
@@ -75,7 +74,7 @@ export class UnauthorizedError extends ServerAPIError {
   }
 }
 
-export class PermissionDeniedError extends ServerAPIError {
+class PermissionDeniedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40300,
@@ -84,7 +83,7 @@ export class PermissionDeniedError extends ServerAPIError {
     });
   }
 }
-export class InvalidTokenError extends ServerAPIError {
+class InvalidTokenError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40301,
@@ -94,7 +93,7 @@ export class InvalidTokenError extends ServerAPIError {
   }
 }
 
-export class TokenExpiredError extends ServerAPIError {
+class TokenExpiredError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40302,
@@ -104,7 +103,7 @@ export class TokenExpiredError extends ServerAPIError {
   }
 }
 
-export class UserNotFoundError extends ServerAPIError {
+class UserNotFoundError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40401,
@@ -114,7 +113,7 @@ export class UserNotFoundError extends ServerAPIError {
   }
 }
 
-export class PageNotFoundError extends ServerAPIError {
+class PageNotFoundError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40402,
@@ -124,7 +123,7 @@ export class PageNotFoundError extends ServerAPIError {
   }
 }
 
-export class GuestNotFoundError extends ServerAPIError {
+class GuestNotFoundError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40403,
@@ -134,7 +133,7 @@ export class GuestNotFoundError extends ServerAPIError {
   }
 }
 
-export class EventNotFoundError extends ServerAPIError {
+class EventNotFoundError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40404,
@@ -144,7 +143,7 @@ export class EventNotFoundError extends ServerAPIError {
   }
 }
 
-export class StaffNotFoundError extends ServerAPIError {
+class StaffNotFoundError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40405,
@@ -154,7 +153,7 @@ export class StaffNotFoundError extends ServerAPIError {
   }
 }
 
-export class EmailVerifiedError extends ServerAPIError {
+class EmailVerifiedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40901,
@@ -164,7 +163,7 @@ export class EmailVerifiedError extends ServerAPIError {
   }
 }
 
-export class GuestExistedError extends ServerAPIError {
+class GuestExistedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40902,
@@ -174,7 +173,7 @@ export class GuestExistedError extends ServerAPIError {
   }
 }
 
-export class TicketApprovedError extends ServerAPIError {
+class TicketApprovedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40903,
@@ -184,7 +183,7 @@ export class TicketApprovedError extends ServerAPIError {
   }
 }
 
-export class TicketCheckedInError extends ServerAPIError {
+class TicketCheckedInError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40904,
@@ -194,7 +193,7 @@ export class TicketCheckedInError extends ServerAPIError {
   }
 }
 
-export class TakenUsernameError extends ServerAPIError {
+class TakenUsernameError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40905,
@@ -204,7 +203,7 @@ export class TakenUsernameError extends ServerAPIError {
   }
 }
 
-export class TakenEmailError extends ServerAPIError {
+class TakenEmailError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40906,
@@ -214,7 +213,7 @@ export class TakenEmailError extends ServerAPIError {
   }
 }
 
-export class StaffExistedError extends ServerAPIError {
+class StaffExistedError extends ServerAPIError {
   constructor({ ...payload }) {
     super({
       code: 40907,
@@ -222,4 +221,33 @@ export class StaffExistedError extends ServerAPIError {
       ...payload,
     });
   }
+}
+
+module.exports = {
+  // 400 Errors
+  InvalidUsernameOrEmailError,
+  InvalidPasswordError,
+  InvalidEmailFormatError,
+  UnknownActionError,
+  InvalidBase64InputError,
+  // 401 Errors
+  UnauthorizedError,
+  // 403 Errors
+  PermissionDeniedError,
+  InvalidTokenError,
+  TokenExpiredError,
+  // 404 Errors
+  UserNotFoundError,
+  PageNotFoundError,
+  GuestNotFoundError,
+  EventNotFoundError,
+  StaffNotFoundError,
+  // 409 Errors
+  EmailVerifiedError,
+  GuestExistedError,
+  TicketApprovedError,
+  TicketCheckedInError,
+  TakenUsernameError,
+  TakenEmailError,
+  StaffExistedError,
 }

@@ -8,7 +8,7 @@ const {
   DOMAIN,
 } = process.env;
 
-const baseConfig = {
+module.exports = {
   DB_HOST,
   DB_PORT,
   DB_USER,
@@ -19,5 +19,3 @@ const baseConfig = {
   IMGUR_CLIENT_ID: '8ce04a19c6e2d8c',
   IMGUR_API_URL: 'https://api.imgur.com/3/',
 };
-
-export default baseConfig;

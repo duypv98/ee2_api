@@ -1,4 +1,4 @@
-export const getBase64String = (base64Url) => {
+module.exports = (base64Url) => {
   let result = base64Url;
   const b64BasePos = base64Url.indexOf('base64,');
   if (b64BasePos !== -1) {

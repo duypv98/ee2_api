@@ -46,7 +46,7 @@ const GuestType = {
   CHECKED: 'checked',
 };
 
-export default {
+module.exports = {
   SelectField,
   ProjectedField,
   ItemsPerPage,

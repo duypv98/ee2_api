@@ -1,10 +1,10 @@
-import Category from 'db/models/Category';
+const Category = require('db/models/Category');
 
 async function findAll() {
   const listCategories = await Category.find();
   return listCategories;
 }
 
-export default {
+module.exports = {
   findAll,
 };

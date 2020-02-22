@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
-import constant from 'common/constant';
-import Category from 'db/models/Category';
-import Event from 'db/models/Event';
-import Group from 'db/models/Group';
-import { Schema } from 'mongoose';
-import { EventNotFoundError } from 'common/error';
+const constant = require('common/constant');
+const Category = require('db/models/Category');
+const Event = require('db/models/Event');
+const Group = require('db/models/Group');
+const { Schema } = require('mongoose');
+const { EventNotFoundError } = require('common/error');
 
 const { SelectField, ProjectedField } = constant;
 
@@ -82,7 +82,7 @@ async function update(eventId, updates) {
   return updatedEvent;
 }
 
-export default {
+module.exports = {
   findByUserId,
   countByUserId,
   findAll,

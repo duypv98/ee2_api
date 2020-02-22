@@ -1,4 +1,4 @@
-import Guest from 'db/models/Guest';
+const Guest = require('db/models/Guest');
 
 /**
  *
@@ -154,7 +154,7 @@ async function findByCode(code) {
   return guest;
 }
 
-export default {
+module.exports = {
   findByEventId,
   countByEventId,
   findPendingByEventId,

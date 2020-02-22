@@ -1,5 +1,5 @@
-import asyncDec from 'utils/asyncDecoration';
-import eventCore from 'core/events.core';
+const asyncDec = require('utils/asyncDecoration');
+const eventCore = require('core/events.core');
 
 const getEventsByUserId = asyncDec(async (req, res) => {
   const dataResponse = await eventCore.findEventsByUser(req.uid, req.query.p);
@@ -36,7 +36,7 @@ const createEvent = asyncDec(async (req, res) => {
   });
 });
 
-export default {
+module.exports = {
   getEventsByUserId,
   getEventInfo,
   getAllEvents,

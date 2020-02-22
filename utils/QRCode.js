@@ -1,5 +1,5 @@
-import qrcode from 'qrcode';
-import { getBase64String } from 'utils/base64';
+const qrcode = require('qrcode');
+const { getBase64String } = require('utils/base64');
 
 async function generateBase64Buffer(obj) {
   const objString = JSON.stringify(obj);
@@ -10,6 +10,6 @@ async function generateBase64Buffer(obj) {
   return dataImage;
 }
 
-export default {
+module.exports = {
   generateBase64Buffer,
 };

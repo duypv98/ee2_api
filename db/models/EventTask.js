@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const SchemaTypes = Schema.Types;
 
@@ -46,5 +46,4 @@ const eventTaskSchema = new Schema({
   }],
 });
 
-const EventTask = model('EventTask', eventTaskSchema, 'event_tasks');
-export default EventTask;
+module.exports = model('EventTask', eventTaskSchema, 'event_tasks');

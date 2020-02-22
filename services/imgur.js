@@ -23,4 +23,4 @@ class _ImgurService {
 
 const ImgurService = new _ImgurService();
 
-export default ImgurService;
+module.exports = ImgurService;

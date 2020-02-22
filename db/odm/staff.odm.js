@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import constant from 'common/constant';
-import Group from 'db/models/Group';
-import User from 'db/models/User';
+const constant = require('common/constant');
+const Group = require('db/models/Group');
+const User = require('db/models/User');
 
 const { ProjectedField } = constant;
 
@@ -38,7 +38,7 @@ async function removeFromEvent(eventId, staffId) {
   return updatedGroup;
 }
 
-export default {
+module.exports = {
   findByEventAndId,
   findByEventId,
   saveToEvent,

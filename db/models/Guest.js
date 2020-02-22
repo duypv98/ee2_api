@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const SchemaTypes = Schema.Types;
 
@@ -32,5 +32,4 @@ const guestSchema = new Schema({
   },
 }, { versionKey: false });
 
-const Guest = model('Guest', guestSchema, 'guests');
-export default Guest;
+module.exports = model('Guest', guestSchema, 'guests');

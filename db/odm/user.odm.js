@@ -1,5 +1,5 @@
-import User from 'db/models/User';
-import constant from 'common/constant';
+const User = require('db/models/User');
+const constant = require('common/constant');
 
 const { SelectField } = constant;
 
@@ -65,7 +65,7 @@ async function update(userId, updates) {
   return updatedUser;
 }
 
-export default {
+module.exports = {
   findById,
   findByUsernameOrEmail,
   findByUsername,

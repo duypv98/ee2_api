@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const SchemaTypes = Schema.Types;
 
@@ -27,4 +27,4 @@ const eventSchema = new Schema({
 });
 
 const Event = model('Event', eventSchema, 'events');
-export default Event;
+module.exports = Event;

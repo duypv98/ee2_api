@@ -1,5 +1,5 @@
-import { ServerAPIError } from 'common/error';
-import { Error as MongooseError } from 'mongoose';
+const { ServerAPIError } = require('common/error');
+const { Error: MongooseError } = require('mongoose');
 
 function errorHandler(err, req, res, next) {
   if (err) {
@@ -34,4 +34,4 @@ function errorHandler(err, req, res, next) {
   return next(err);
 }
 
-export default errorHandler;
+module.exports = errorHandler;

@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
-import eventODM from 'db/odm/event.odm';
-import roleODM from 'db/odm/role.odm';
-import groupODM from 'db/odm/group.odm';
-import categoryODM from 'db/odm/category.odm';
-import pagination from 'utils/pagination';
-import constant from 'common/constant';
-import { EventNotFoundError } from 'common/error';
-import { Types } from 'mongoose';
+const eventODM = require('db/odm/event.odm');
+const roleODM = require('db/odm/role.odm');
+const groupODM = require('db/odm/group.odm');
+const categoryODM = require('db/odm/category.odm');
+const pagination = require('utils/pagination');
+const constant = require('common/constant');
+const { EventNotFoundError } = require('common/error');
+const { Types } = require('mongoose');
 
 
 const { ItemsPerPage } = constant;
@@ -88,7 +88,7 @@ async function saveNewEvent(userId, event) {
   };
 }
 
-export default {
+module.exports = {
   findEventsByUser,
   findEventDetails,
   findAllEvents,

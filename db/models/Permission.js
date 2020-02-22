@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const permissionSchema = new Schema({
   data: {
@@ -8,5 +8,4 @@ const permissionSchema = new Schema({
   },
 });
 
-const Permission = model('Permission', permissionSchema, 'permissions');
-export default Permission;
+module.exports = model('Permission', permissionSchema, 'permissions');

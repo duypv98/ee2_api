@@ -9,4 +9,4 @@ function wrapAsync(fn) {
   return wrapper;
 }
 
-export default wrapAsync;
+module.exports = wrapAsync;

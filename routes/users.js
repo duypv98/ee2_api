@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import verifyToken from 'middlewares/verifyToken';
-import verifyUser from 'middlewares/verifyUser';
-import userController from 'controllers/users.controller';
-import eventController from 'controllers/events.controller';
+const { Router } = require('express');
+const verifyToken = require('middlewares/verifyToken');
+const verifyUser = require('middlewares/verifyUser');
+const userController = require('controllers/users.controller');
+const eventController = require('controllers/events.controller');
 
 const router = Router();
 
@@ -16,4 +16,4 @@ router.route('/:userId')
 router.route('/:userId/events')
   .get(verifyToken, verifyUser, eventController.getEventsByUserId);
 
-export default router;
+module.exports = router;

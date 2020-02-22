@@ -22,15 +22,9 @@ app.use('/', routes);
 app.use(errorHandler);
 app.use(notFoundRequestHandler);
 
-const startApp = async () => {
+(async () => {
   try {
     await mongo.open();
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-startApp();
+    app.listen(port, () => console.log(`Server is running on port ${port}`));
+  } catch (error) { console.log(error); }
+})();

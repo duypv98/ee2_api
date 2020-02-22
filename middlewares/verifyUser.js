@@ -1,4 +1,4 @@
-import { UnauthorizedError, PermissionDeniedError } from 'common/error';
+const { UnauthorizedError, PermissionDeniedError } = require('common/error');
 
 function verifyUser(req, res, next) {
   if (!req.uid) {
@@ -10,4 +10,4 @@ function verifyUser(req, res, next) {
   next();
 }
 
-export default verifyUser;
+module.exports = verifyUser;

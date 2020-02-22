@@ -1,8 +1,8 @@
-import eventController from 'controllers/events.controller';
-import guestController from 'controllers/guests.controller';
-import staffController from 'controllers/staffs.controller';
-import { Router } from 'express';
-import verifyToken from 'middlewares/verifyToken';
+const { Router } = require('express');
+const eventController = require('controllers/events.controller');
+const guestController = require('controllers/guests.controller');
+const staffController = require('controllers/staffs.controller');
+const verifyToken = require('middlewares/verifyToken');
 
 const router = Router();
 
@@ -31,4 +31,4 @@ router.route('/:eventId/guests/:guestId')
 router.route('/categories')
   .get(eventController.getAllCategories);
 
-export default router;
+module.exports = router;

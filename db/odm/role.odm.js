@@ -1,4 +1,4 @@
-import Role from 'db/models/Role';
+const Role = require('db/models/Role');
 
 async function findByNameAndType(roleName, type) {
   const role = await Role.findOne(
@@ -7,6 +7,6 @@ async function findByNameAndType(roleName, type) {
   return role;
 }
 
-export default {
+module.exports = {
   findByNameAndType,
 };

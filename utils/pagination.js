@@ -1,4 +1,4 @@
-import { PageNotFoundError } from 'common/error';
+const { PageNotFoundError } = require('common/error');
 
 /**
  *
@@ -29,6 +29,6 @@ function getPaginatedObject(totalItems, itemsPerPage, page) {
   };
 }
 
-export default {
+module.exports = {
   getPaginatedObject,
 };

@@ -1,5 +1,5 @@
-import asyncDec from 'utils/asyncDecoration';
-import authCore from 'core/auth.core';
+const asyncDec = require('utils/asyncDecoration');
+const authCore = require('core/auth.core');
 
 const login = asyncDec(async (req, res) => {
   const { username, password } = req.body;
@@ -9,6 +9,4 @@ const login = asyncDec(async (req, res) => {
   });
 });
 
-export default {
-  login,
-};
+module.exports = { login };

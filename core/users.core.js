@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
-import configs from 'configs/index';
-import jwt from 'jsonwebtoken';
-import {
+const configs = require('configs/index');
+const jwt = require('jsonwebtoken');
+const {
   UserNotFoundError, TakenUsernameError, TakenEmailError, InvalidEmailFormatError,
-} from 'common/error';
-import userODM from 'db/odm/user.odm';
-import encryption from 'utils/encryption';
-import validation from 'utils/validation';
-import { VerifyUserEmail } from 'common/mail';
+} = require('common/error');
+const userODM = require('db/odm/user.odm');
+const encryption = require('utils/encryption');
+const validation = require('utils/validation');
+const { VerifyUserEmail } = require('common/mail');
 
 /**
  *
@@ -90,7 +90,7 @@ async function updateVerifyEmail(userId) {
   };
 }
 
-export default {
+module.exports = {
   findUserById,
   saveNewUser,
   updateVerifyEmail,

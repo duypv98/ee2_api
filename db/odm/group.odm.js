@@ -1,4 +1,4 @@
-import Group from 'db/models/Group';
+const Group = require('db/models/Group');
 
 async function save(group) {
   const newGroup = new Group(group);
@@ -6,6 +6,6 @@ async function save(group) {
   return savedGroup;
 }
 
-export default {
+module.exports = {
   save,
 };

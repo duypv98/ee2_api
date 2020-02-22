@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import mongoose from 'mongoose';
-import chalk from 'chalk';
-import configs from 'configs/index';
+const mongoose = require('mongoose');
+const chalk = require('chalk');
+const configs = require('configs/index');
 
 mongoose.Promise = global.Promise;
 

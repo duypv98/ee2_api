@@ -1,5 +1,5 @@
-import asyncDec from 'utils/asyncDecoration';
-import staffCore from 'core/staffs.core';
+const asyncDec = require('utils/asyncDecoration');
+const staffCore = require('core/staffs.core');
 
 const getStaffsByEventId = (asyncDec(async (req, res) => {
   const dataResponse = await staffCore.findStaffsByEventId(req.params.eventId);
@@ -22,7 +22,7 @@ const deleteStaffFromEvent = asyncDec(async (req, res) => {
   });
 });
 
-export default {
+module.exports = {
   getStaffsByEventId,
   addStaffToEvent,
   deleteStaffFromEvent,

@@ -1,6 +1,8 @@
-import configs from 'configs/index';
-import jwt, { TokenExpiredError as JWTExpiredError } from 'jsonwebtoken';
-import { UnauthorizedError, InvalidTokenError, TokenExpiredError } from 'common/error';
+const configs = require('configs/index');
+const jwt = require('jsonwebtoken');
+const { UnauthorizedError, InvalidTokenError, TokenExpiredError } = require('common/error');
+
+const { TokenExpiredError: JWTExpiredError } = jwt;
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers.authorization;
@@ -22,4 +24,4 @@ function verifyToken(req, res, next) {
   }
 }
 
-export default verifyToken;
+module.exports = verifyToken;

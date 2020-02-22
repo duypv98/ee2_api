@@ -1,7 +1,7 @@
-import validator from 'validator';
+const validator = require('validator');
 
 const isValidEmail = (email) => validator.isEmail(email);
 
-export default {
+module.exports = {
   isValidEmail,
 };

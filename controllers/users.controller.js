@@ -1,6 +1,6 @@
-import asyncDec from 'utils/asyncDecoration';
-import userCore from 'core/users.core';
-import constant from 'common/constant';
+const asyncDec = require('utils/asyncDecoration');
+const userCore = require('core/users.core');
+const constant = require('common/constant');
 
 const { UserAction } = constant;
 
@@ -30,7 +30,7 @@ const updateUser = asyncDec(async (req, res) => {
   });
 });
 
-export default {
+module.exports = {
   getUserById,
   createNewUser,
   updateUser,

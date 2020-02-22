@@ -1,9 +1,8 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const categorySchema = new Schema({
   key: String,
   value: String,
 });
 
-const Category = model('Category', categorySchema, 'categories');
-export default Category;
+module.exports = model('Category', categorySchema, 'categories');

@@ -1,7 +1,7 @@
-import asyncDec from 'utils/asyncDecoration';
-import guestCore from 'core/guests.core';
-import constant from 'common/constant';
-import { UnknownActionError } from 'common/error';
+const asyncDec = require('utils/asyncDecoration');
+const guestCore = require('core/guests.core');
+const constant = require('common/constant');
+const { UnknownActionError } = require('common/error');
 
 const { GuestAction, GuestType } = constant;
 
@@ -69,7 +69,7 @@ const checkTicket = (asyncDec(async (req, res) => {
   });
 }));
 
-export default {
+module.exports = {
   getGuestsByEventId,
   getGuestInfo,
   createGuest,

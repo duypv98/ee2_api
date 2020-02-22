@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
 
 const saltRounds = 12;
 
@@ -16,4 +16,4 @@ function isEqual(plain, hash) {
   return false;
 }
 
-export default { encrypt, isEqual };
+module.exports = { encrypt, isEqual };
