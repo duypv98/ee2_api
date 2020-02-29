@@ -12,7 +12,7 @@ const {
   EmailVerifiedError, TicketApprovedError, TicketCheckedInError,
 } = require('common/error');
 const { VerifyGuestEmail, TicketEmail } = require('common/mail');
-const QRCode = require('utils/QRCode');
+const base64 = require('utils/base64');
 const MailgunService = require('services/mailgun');
 const { fromString } = require('uuidv4');
 
@@ -151,7 +151,7 @@ async function sendTicketMail(guest, event, ticketCode) {
     eventId: event.id,
     ticketCode,
   };
-  const dataImage = await QRCode.generateBase64Buffer(data);
+  const dataImage = await base64.getBufferFromObject(data);
 
   const ticketMail = new TicketEmail({
     to: `${guest.email}`,

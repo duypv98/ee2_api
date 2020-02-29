@@ -1,6 +1,6 @@
 const imgur = require('imgur');
 const configs = require('configs');
-const getBase64String = require('utils/getBase64String');
+const base64 = require('utils/base64');
 const { InvalidBase64InputError } = require('common/error');
 
 class _ImgurService {
@@ -11,7 +11,7 @@ class _ImgurService {
   }
 
   async uploadFromBase64(base64Url) {
-    const base64String = getBase64String(base64Url);
+    const base64String = base64.generateFromURL(base64Url);
     try {
       const response = await this.api.uploadBase64(base64String);
       return response.data;
