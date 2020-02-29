@@ -1,24 +1,24 @@
-const asyncDec = require('utils/asyncDecoration');
+const asyncRoute = require('utils/asyncRoute');
 const userCore = require('core/users.core');
 const constant = require('common/constant');
 
 const { UserAction } = constant;
 
-const getUserById = asyncDec(async (req, res) => {
+const getUserById = asyncRoute(async (req, res) => {
   const dataResponse = await userCore.findUserById(req.uid);
   res.json({
     data: dataResponse,
   });
 });
 
-const createNewUser = asyncDec(async (req, res) => {
+const createNewUser = asyncRoute(async (req, res) => {
   const dataResponse = await userCore.saveNewUser(req.body);
   res.json({
     data: dataResponse,
   });
 });
 
-const updateUser = asyncDec(async (req, res) => {
+const updateUser = asyncRoute(async (req, res) => {
   const { action } = req.body;
   const { userId } = req.params;
   let dataResponse = {};

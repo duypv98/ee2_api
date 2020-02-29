@@ -1,7 +1,7 @@
-const asyncDec = require('utils/asyncDecoration');
+const asyncRoute = require('utils/asyncRoute');
 const authCore = require('core/auth.core');
 
-const login = asyncDec(async (req, res) => {
+const login = asyncRoute(async (req, res) => {
   const { username, password } = req.body;
   const dataResponse = await authCore.checkLogin(username, password);
   res.json({

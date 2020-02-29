@@ -1,11 +1,11 @@
-const asyncDec = require('utils/asyncDecoration');
+const asyncRoute = require('utils/asyncRoute');
 const guestCore = require('core/guests.core');
 const constant = require('common/constant');
 const { UnknownActionError } = require('common/error');
 
 const { GuestAction, GuestType } = constant;
 
-const getGuestsByEventId = (asyncDec(async (req, res) => {
+const getGuestsByEventId = (asyncRoute(async (req, res) => {
   const { p, type } = req.query;
   let dataResponse = {};
   switch (type) {
@@ -25,14 +25,14 @@ const getGuestsByEventId = (asyncDec(async (req, res) => {
   });
 }));
 
-const getGuestInfo = (asyncDec(async (req, res) => {
+const getGuestInfo = (asyncRoute(async (req, res) => {
   const dataResponse = await guestCore.findGuestById(req.params.guestId);
   res.json({
     data: dataResponse,
   });
 }));
 
-const createGuest = (asyncDec(async (req, res) => {
+const createGuest = (asyncRoute(async (req, res) => {
   const dataResponse = await guestCore
     .saveNewGuestWithEventId(req.body.userId, req.params.eventId, req.body.guestInfo);
   res.json({
@@ -40,7 +40,7 @@ const createGuest = (asyncDec(async (req, res) => {
   });
 }));
 
-const updateGuest = (asyncDec(async (req, res) => {
+const updateGuest = (asyncRoute(async (req, res) => {
   const { action, ticketCode } = req.body;
   const { guestId } = req.params;
   let dataResponse = {};
@@ -62,7 +62,7 @@ const updateGuest = (asyncDec(async (req, res) => {
   });
 }));
 
-const checkTicket = (asyncDec(async (req, res) => {
+const checkTicket = (asyncRoute(async (req, res) => {
   const dataResponse = await guestCore.findGuestByCode(req.body.code);
   res.json({
     data: dataResponse,

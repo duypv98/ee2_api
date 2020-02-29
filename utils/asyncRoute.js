@@ -1,12 +1,6 @@
-/**
- *
- * @param {Function} fn
- */
-function wrapAsync(fn) {
+module.exports = (fn) => {
   const wrapper = (req, res, next) => {
     fn(req, res, next).catch(next);
   };
   return wrapper;
-}
-
-module.exports = wrapAsync;
+};

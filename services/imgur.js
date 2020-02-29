@@ -1,7 +1,7 @@
-import imgur from 'imgur';
-import configs from 'configs';
-import { getBase64String } from 'utils/base64';
-import { InvalidBase64InputError } from 'common/error';
+const imgur = require('imgur');
+const configs = require('configs');
+const getBase64String = require('utils/getBase64String');
+const { InvalidBase64InputError } = require('common/error');
 
 class _ImgurService {
   constructor() {

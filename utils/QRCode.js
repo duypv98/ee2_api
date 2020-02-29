@@ -1,5 +1,5 @@
 const qrcode = require('qrcode');
-const { getBase64String } = require('utils/base64');
+const getBase64String = require('utils/getBase64String');
 
 async function generateBase64Buffer(obj) {
   const objString = JSON.stringify(obj);
