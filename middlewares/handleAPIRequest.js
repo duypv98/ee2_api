@@ -1,17 +1,10 @@
 const { ServerAPIError } = require('common/error');
 const { Error: MongooseError } = require('mongoose');
 
-function errorHandler(err, req, res, next) {
+module.exports = (err, req, res, next) => {
   if (err) {
     if (err instanceof ServerAPIError) {
-      const { code, message, data } = err;
-      res.status(err.status).json({
-        error: {
-          code,
-          message,
-          data,
-        },
-      });
+      res.status(err.status).json({ error: err });
     } else if (err instanceof MongooseError) {
       res.status(400).json({
         error: {
@@ -30,8 +23,5 @@ function errorHandler(err, req, res, next) {
       });
     }
   }
-
   return next(err);
-}
-
-module.exports = errorHandler;
+};

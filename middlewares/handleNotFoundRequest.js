@@ -1,4 +1,4 @@
-function notFoundRequestHandler(req, res, next) {
+module.exports = (req, res, next) => {
   res.status(404).json({
     error: {
       code: 40400,
@@ -7,6 +7,4 @@ function notFoundRequestHandler(req, res, next) {
     },
   });
   next();
-}
-
-module.exports = notFoundRequestHandler;
+};

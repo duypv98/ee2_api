@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongo = require('db/utils/connection');
-const apiErrorHandler = require('middlewares/apiErrorHandler');
-const notFoundErrorHandler = require('middlewares/notFoundErrorHandler');
+const handleAPIRequest = require('middlewares/handleAPIRequest');
+const handleNotFoundRequest = require('middlewares/handleNotFoundRequest');
 
 // ----- Routes
 const routes = [
@@ -20,12 +20,12 @@ const port = process.env.PORT || 3003;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(morgan('common'));
 app.use(cors());
 
 routes.forEach((endpoint) => app.use(require(`routes/${endpoint}`)));
-app.use(apiErrorHandler);
-app.use(notFoundErrorHandler);
+app.use(handleAPIRequest);
+app.use(handleNotFoundRequest);
 
 // ----- Run
 (async () => {
