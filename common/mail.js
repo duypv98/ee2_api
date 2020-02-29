@@ -4,11 +4,6 @@ const MailgunService = require('services/mailgun');
 const { Email, EmailSubject } = constant;
 
 class Mail {
-  /**
-   *
-   * @param {Object}
-   *
-   */
   constructor({
     subject, to, html, attachment,
   }) {
@@ -57,4 +52,4 @@ module.exports = {
   VerifyUserEmail,
   VerifyGuestEmail,
   TicketEmail,
-}
+};

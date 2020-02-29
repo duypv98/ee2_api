@@ -1,27 +1,33 @@
-/* eslint-disable no-console */
-require('dotenv').config({
-  path: `${__dirname}/.env`,
-});
+require('dotenv').config({ path: `${__dirname}/.env` });
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongo = require('db/utils/connection');
-const routes = require('routes/index').default;
-const errorHandler = require('middlewares/errorHandler').default;
-const notFoundRequestHandler = require('middlewares/notFoundRequestHandler').default;
+const apiErrorHandler = require('middlewares/apiErrorHandler');
+const notFoundErrorHandler = require('middlewares/notFoundErrorHandler');
 
+// ----- Routes
+const routes = [
+  'auth',
+  'category',
+  'events',
+  'users'
+];
+
+// ----- Express App configuration
 const app = express();
 const port = process.env.PORT || 3003;
 
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(morgan('dev'));
-app.use('/', routes);
-app.use(errorHandler);
-app.use(notFoundRequestHandler);
+app.use(cors());
 
+routes.forEach((endpoint) => app.use(require(`routes/${endpoint}`)));
+app.use(apiErrorHandler);
+app.use(notFoundErrorHandler);
+
+// ----- Run
 (async () => {
   try {
     await mongo.open();

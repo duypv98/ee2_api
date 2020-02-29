@@ -3,7 +3,7 @@ const authController = require('controllers/auth.controller');
 
 const router = Router();
 
-router.route('/login')
+router.route('/auth/login')
   .post(authController.login);
 
 module.exports = router;

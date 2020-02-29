@@ -6,14 +6,14 @@ const eventController = require('controllers/events.controller');
 
 const router = Router();
 
-router.route('/')
+router.route('/users')
   .post(userController.createNewUser);
 
-router.route('/:userId')
+router.route('/users/:userId')
   .get(verifyToken, verifyUser, userController.getUserById)
   .put(userController.updateUser);
 
-router.route('/:userId/events')
+router.route('/users/:userId/events')
   .get(verifyToken, verifyUser, eventController.getEventsByUserId);
 
 module.exports = router;

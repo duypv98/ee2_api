@@ -1,7 +1,8 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "browser": true
     },
     "extends": [
         "airbnb-base"
@@ -22,7 +23,12 @@
       }
     },
     "rules": {
+      "comma-dangle": 0,
+      "global-require": 0,
+      "import/no-dynamic-require": 0,
       "import/prefer-default-export": 0,
-      "no-nested-ternary": 0
+      "max-classes-per-file": 0,
+      "no-nested-ternary": 0,
+      "no-console": 0
     }
 }

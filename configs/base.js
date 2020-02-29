@@ -6,6 +6,8 @@ const {
   JWT_SECRET_KEY,
   MAILGUN_API_KEY,
   DOMAIN,
+  IMGUR_CLIENT_ID,
+  IMGUR_API_URL
 } = process.env;
 
 module.exports = {
@@ -16,6 +18,6 @@ module.exports = {
   JWT_SECRET_KEY,
   MAILGUN_API_KEY,
   DOMAIN,
-  IMGUR_CLIENT_ID: '8ce04a19c6e2d8c',
-  IMGUR_API_URL: 'https://api.imgur.com/3/',
+  IMGUR_CLIENT_ID,
+  IMGUR_API_URL,
 };

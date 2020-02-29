@@ -37,25 +37,18 @@ process.on('SIGINT', () => {
   });
 });
 
-const open = async () => {
-  try {
-    await mongoose.connect(configs.DB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      auth: {
-        user: configs.DB_USER,
-        password: configs.DB_PWD,
-      },
-    });
-  } catch (error) {
-    console.log(error);
+const open = () => mongoose.connect(configs.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  auth: {
+    user: configs.DB_USER,
+    password: configs.DB_PWD,
   }
-};
-
+});
 const defaultInstance = connection;
 
-export {
+module.exports = {
   open,
   defaultInstance,
 };
